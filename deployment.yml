@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-site
+spec:
+  replicas: 3   # nums of pods
+  selector:
+    matchLabels:
+      app: my-web-site
+  template:
+    metadata:
+      labels:
+        app: my-web-site
+    spec:
+      containers:
+        - name: my-web-site
+          image: younesaliyounes/my-web-site:latest
+          imagePullPolicy: Always
+          stdin: true
+          tty: true
